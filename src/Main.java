@@ -12,6 +12,7 @@ public class Main {
       System.out.println("4. Delete a student");
       System.out.println("5. Modify a student");
       System.out.println("0. Exit the program");
+      System.out.print("input: ");
       input = scanner.nextInt();
     }while(input > 0);
     scanner.close();
