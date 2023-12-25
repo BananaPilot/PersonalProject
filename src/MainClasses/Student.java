@@ -12,13 +12,14 @@ public class Student {
 
   private ArrayList<Project> projects;
 
-  public Student(int ID, String name, String surname, String major, String majorID, ArrayList<Exercise> exercises){
+  public Student(int ID, String name, String surname, String major, String majorID, ArrayList<Exercise> exercises, ArrayList<Project> projects){
     this.ID = ID;
     this.name = name;
     this.surname = surname;
     this.major = major;
     this.majorID = majorID;
     this.exercises = exercises;
+    this.projects = projects;
   }
 
   public int getID() {
@@ -45,6 +46,10 @@ public class Student {
     return exercises;
   }
 
+  public ArrayList<Project> getProjects() {
+    return projects;
+  }
+
   public void setID(int ID) {
     this.ID = ID;
   }
@@ -69,6 +74,10 @@ public class Student {
     this.exercises = exercises;
   }
 
+  public void setProjects(ArrayList<Project> projects) {
+    this.projects = projects;
+  }
+
   public void addExercise(Exercise exercise) {
     this.exercises.add(exercise);
   }
@@ -78,6 +87,18 @@ public class Student {
   }
 
   public void modifyExercise(int ID) {
+
+  }
+
+  public void addProject(Project project) {
+    this.projects.add(project);
+  }
+
+  public void removeProject(int ID) {
+
+  }
+
+  public void modifyProject(int ID) {
 
   }
 }
