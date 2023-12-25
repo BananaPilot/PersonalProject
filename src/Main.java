@@ -12,7 +12,7 @@ public class Main {
   }
 
   public static void printMainPrompt(){
-    System.out.println("Develhope Student management software");
+    System.out.println("Develhope MainClasses.Student management software");
     System.out.println("1. Create a new student");
     System.out.println("2. List all students");
     System.out.println("3. List a specific student");
