@@ -1,25 +1,23 @@
-package MainClasses;
+package Classes;
 
 import java.util.ArrayList;
 
 public class Student {
-  private int ID;
+  private static int counter = 1;
+  private final int ID;
   private String name;
   private String surname;
   private String major;
   private String majorID;
   private ArrayList<Exercise> exercises;
-
   private ArrayList<Project> projects;
 
-  public Student(int ID, String name, String surname, String major, String majorID, ArrayList<Exercise> exercises, ArrayList<Project> projects){
-    this.ID = ID;
+  public Student(String name, String surname, String major, String majorID){
     this.name = name;
     this.surname = surname;
     this.major = major;
     this.majorID = majorID;
-    this.exercises = exercises;
-    this.projects = projects;
+    this.ID = incrementAndGet();
   }
 
   public int getID() {
@@ -48,10 +46,6 @@ public class Student {
 
   public ArrayList<Project> getProjects() {
     return projects;
-  }
-
-  public void setID(int ID) {
-    this.ID = ID;
   }
 
   public void setName(String name) {
@@ -108,5 +102,9 @@ public class Student {
 
   public void getProject(int ID) {
 
+  }
+
+  private static int incrementAndGet(){
+    return counter++;
   }
 }
