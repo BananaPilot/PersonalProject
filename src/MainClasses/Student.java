@@ -90,6 +90,10 @@ public class Student {
 
   }
 
+  public void getExercise(int ID) {
+
+  }
+
   public void addProject(Project project) {
     this.projects.add(project);
   }
@@ -99,6 +103,10 @@ public class Student {
   }
 
   public void modifyProject(int ID) {
+
+  }
+
+  public void getProject(int ID) {
 
   }
 }
