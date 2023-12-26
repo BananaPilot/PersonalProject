@@ -6,13 +6,13 @@ import java.time.LocalDateTime;
 
 public class Exercise {
   private static int counter = 1;
-  private int ID;
+  private final int ID;
   private String name;
   private String description;
   private int grade;
   private Difficulty difficulty;
   private LocalDateTime completionDate;
-  private Boolean completed;
+  private boolean completed;
   public Exercise(String name, String description, int grade, Difficulty difficulty) {
     this.ID = incrementAndGet();
     this.name = name;
@@ -46,12 +46,8 @@ public class Exercise {
     return completionDate;
   }
 
-  public Boolean getCompleted() {
+  public boolean isCompleted() {
     return completed;
-  }
-
-  public void setID(int ID) {
-    this.ID = ID;
   }
 
   public void setName(String name) {
