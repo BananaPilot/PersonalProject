@@ -26,6 +26,9 @@ public class Main {
         case 4:
           UserInput.deleteStudent(students);
           break;
+        case 5:
+          UserInput.modifyStudent(students);
+          break;
       }
     } while (input > 0);
     UserInput.scanner.close();

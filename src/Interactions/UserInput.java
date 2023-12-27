@@ -59,4 +59,39 @@ public class UserInput {
     }
     System.out.println("Student with ID " + ID + " has been deleted");
   }
+
+  public static void modifyStudent(ArrayList<Student> students){
+    Student student = getStudent(students);
+    int input;
+    do {
+      Prompts.modifyPrompt();
+      input = getInput();
+      switch (input){
+        case 1:
+          System.out.print("New name: ");
+          String name = scanner.nextLine();
+          assert student != null;
+          student.setName(name);
+          break;
+        case 2:
+          System.out.print("New surname: ");
+          String surname = scanner.nextLine();
+          assert student != null;
+          student.setSurname(surname);
+          break;
+        case 3:
+          System.out.print("New major: ");
+          String major = scanner.nextLine();
+          assert student != null;
+          student.setMajor(major);
+          break;
+        case 4:
+          System.out.print("New majorID: ");
+          String majorID = scanner.nextLine();
+          assert student != null;
+          student.setMajorID(majorID);
+          break;
+      }
+    } while (input > 0);
+  }
 }

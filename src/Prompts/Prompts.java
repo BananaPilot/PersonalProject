@@ -11,7 +11,16 @@ public class Prompts {
     System.out.println("4. Delete a student");
     System.out.println("5. Modify a student");
     System.out.println("0. Exit the program");
-    System.out.print("input: ");
+    System.out.print("Input: ");
+  }
+
+  public static void modifyPrompt(){
+    System.out.println("1. Change name");
+    System.out.println("2. Change Surname");
+    System.out.println("3. Change Major");
+    System.out.println("4. Change MajorID");
+    System.out.println("0. Back to main menu");
+    System.out.print("Input: ");
   }
 
   public static int getID(){
