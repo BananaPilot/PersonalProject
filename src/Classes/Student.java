@@ -107,4 +107,17 @@ public class Student {
   private static int incrementAndGet(){
     return counter++;
   }
+
+  @Override
+  public String toString() {
+    return "Student{" +
+            "ID=" + ID +
+            ", name='" + name + '\'' +
+            ", surname='" + surname + '\'' +
+            ", major='" + major + '\'' +
+            ", majorID='" + majorID + '\'' +
+            ", exercises=" + exercises +
+            ", projects=" + projects +
+            '}';
+  }
 }

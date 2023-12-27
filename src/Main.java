@@ -1,24 +1,33 @@
+import Classes.Student;
+import Interactions.UserInput;
+import Prompts.Prompts;
+
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
+  public static Scanner scanner = new Scanner(System.in);
   public static void main(String[] args) {
-    Scanner scanner = new Scanner(System.in);
+    ArrayList<Student> students = new ArrayList<>();
     int input;
-    do{
-      printMainPrompt();
-      input = scanner.nextInt();
-    }while(input > 0);
-    scanner.close();
-  }
-
-  public static void printMainPrompt(){
-    System.out.println("Develhope Student management software");
-    System.out.println("1. Create a new student");
-    System.out.println("2. List all students");
-    System.out.println("3. List a specific student");
-    System.out.println("4. Delete a student");
-    System.out.println("5. Modify a student");
-    System.out.println("0. Exit the program");
-    System.out.print("input: ");
+    do {
+      Prompts.mainPrompt();
+      input = UserInput.getInput();
+      switch (input){
+        case 1:
+          students.add(UserInput.createStudent());
+          break;
+        case 2:
+          UserInput.getStudents(students);
+          break;
+        case 3:
+          System.out.println(UserInput.getStudent(students));
+          break;
+        case 4:
+          UserInput.deleteStudent(students);
+          break;
+      }
+    } while (input > 0);
+    UserInput.scanner.close();
   }
 }
