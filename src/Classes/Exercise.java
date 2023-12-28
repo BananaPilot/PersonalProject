@@ -1,8 +1,7 @@
 package Classes;
 
-import Enums.Difficulty;
-
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 public class Exercise {
   private static int counter = 1;
@@ -13,11 +12,10 @@ public class Exercise {
   private Difficulty difficulty;
   private LocalDateTime completionDate;
   private boolean completed;
-  public Exercise(String name, String description, int grade, Difficulty difficulty) {
+  public Exercise(String name, String description, Difficulty difficulty) {
     this.ID = incrementAndGet();
     this.name = name;
     this.description = description;
-    this.grade = grade;
     this.difficulty = difficulty;
     this.completed = false;
   }
@@ -69,6 +67,17 @@ public class Exercise {
   public void setCompleted() {
     this.completed = true;
     this.completionDate = LocalDateTime.now();
+  }
+
+  public static InstanceIndex<Exercise> getStudentAndIndex(int ID, ArrayList<Exercise> exercises){
+    int index = 0;
+    for (Exercise exercise : exercises){
+      if (exercise.getID() == ID){
+        return new InstanceIndex<>(exercise, index);
+      }
+      index++;
+    }
+    return null;
   }
 
   private static int incrementAndGet(){

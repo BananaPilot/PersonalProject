@@ -1,36 +1,29 @@
-import Classes.Student;
-import Interactions.UserInput;
+import ClassesInput.ExerciseHandler;
+import ClassesInput.GetInput;
+import ClassesInput.In;
+import ClassesInput.StudentHandler;
 import Prompts.Prompts;
 
-import java.util.ArrayList;
-import java.util.Scanner;
-
 public class Main {
-  public static Scanner scanner = new Scanner(System.in);
   public static void main(String[] args) {
-    ArrayList<Student> students = new ArrayList<>();
     int input;
     do {
       Prompts.mainPrompt();
-      input = UserInput.getInput();
+      input = GetInput.getInput();
       switch (input){
         case 1:
-          students.add(UserInput.createStudent());
+          StudentHandler.studentCRUDInterface();
           break;
         case 2:
-          UserInput.getStudents(students);
+          ExerciseHandler.exerciseCRUDInterface();
           break;
-        case 3:
-          System.out.println(UserInput.getStudent(students));
-          break;
-        case 4:
-          UserInput.deleteStudent(students);
-          break;
-        case 5:
-          UserInput.modifyStudent(students);
+        default:
+          if (input != 0){
+            System.out.print("\n Please enter a valid number \n");
+          }
           break;
       }
     } while (input > 0);
-    UserInput.scanner.close();
+    In.scanner.close();
   }
 }

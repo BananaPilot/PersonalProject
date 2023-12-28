@@ -104,6 +104,17 @@ public class Student {
 
   }
 
+  public static InstanceIndex<Student> getStudentAndIndex(int ID, ArrayList<Student> students){
+    int index = 0;
+    for (Student student : students){
+      if (student.getID() == ID){
+        return new InstanceIndex<>(student, index);
+      }
+      index++;
+    }
+    return null;
+  }
+
   private static int incrementAndGet(){
     return counter++;
   }
