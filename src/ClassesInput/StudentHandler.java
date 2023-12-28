@@ -1,42 +1,35 @@
-package Interactions;
+package ClassesInput;
 
 import Classes.InstanceIndex;
 import Classes.Student;
 import Prompts.Prompts;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
-public class UserInput {
-  public static Scanner scanner = new Scanner(System.in);
-
-  public static int getInput(){
-    int input = scanner.nextInt();
-    scanner.nextLine();
-    return input;
-  }
+public class StudentHandler {
 
   public static void studentCRUDInterface(){
     ArrayList<Student> students = new ArrayList<>();
     int input;
     do {
-      Prompts.mainPrompt();
-      input = UserInput.getInput();
+      Prompts.studentManagingPrompt();
+      input = GetInput.getInput();
       switch (input){
         case 1:
-          students.add(UserInput.createStudent());
+          students.add(createStudent());
           break;
         case 2:
-          UserInput.getStudents(students);
+          getStudents(students);
           break;
         case 3:
-          System.out.println(UserInput.getStudent(students));
+          InstanceIndex<Student> student = getStudent(students);
+          System.out.println(student.element().toString());
           break;
         case 4:
-          UserInput.deleteStudent(students);
+          deleteStudent(students);
           break;
         case 5:
-          UserInput.modifyStudent(students);
+          modifyStudent(students);
           break;
         default:
           if (input != 0){
@@ -49,13 +42,13 @@ public class UserInput {
 
   public static Student createStudent(){
     System.out.print("Name: ");
-    String name = scanner.nextLine();
+    String name = In.scanner.nextLine();
     System.out.print("Surname: ");
-    String surname = scanner.nextLine();
+    String surname = In.scanner.nextLine();
     System.out.print("Major: ");
-    String major = scanner.nextLine();
+    String major = In.scanner.nextLine();
     System.out.print("MajorID: ");
-    String majorID = scanner.nextLine();
+    String majorID = In.scanner.nextLine();
     return new Student(name, surname, major, majorID);
   }
 
@@ -70,7 +63,7 @@ public class UserInput {
   }
 
   public static InstanceIndex<Student> getStudent(ArrayList<Student> students){
-    int ID = Prompts.getID();
+    int ID = GetInput.getID();
     return Student.getStudentAndIndex(ID, students);
   }
 
@@ -81,35 +74,35 @@ public class UserInput {
   }
 
   public static void modifyStudent(ArrayList<Student> students){
-    InstanceIndex<Student> student = getStudent(students);
+    Student student = getStudent(students).element();
     int input;
     do {
-      Prompts.modifyPrompt();
-      input = getInput();
+      Prompts.studentModifyPrompt();
+      input = GetInput.getInput();
       switch (input){
         case 1:
           System.out.print("New name: ");
-          String name = scanner.nextLine();
+          String name = In.scanner.nextLine();
           assert student != null;
-          student.element().setName(name);
+          student.setName(name);
           break;
         case 2:
           System.out.print("New surname: ");
-          String surname = scanner.nextLine();
+          String surname = In.scanner.nextLine();
           assert student != null;
-          student.element().setSurname(surname);
+          student.setSurname(surname);
           break;
         case 3:
           System.out.print("New major: ");
-          String major = scanner.nextLine();
+          String major = In.scanner.nextLine();
           assert student != null;
-          student.element().setMajor(major);
+          student.setMajor(major);
           break;
         case 4:
           System.out.print("New majorID: ");
-          String majorID = scanner.nextLine();
+          String majorID = In.scanner.nextLine();
           assert student != null;
-          student.element().setMajorID(majorID);
+          student.setMajorID(majorID);
           break;
         default:
           System.out.print("\n Please enter a valid number \n");
