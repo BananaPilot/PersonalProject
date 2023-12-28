@@ -2,6 +2,27 @@ package Classes;
 
 import java.time.LocalDateTime;
 
+/**
+ * <pre>
+ *   Creates a new project
+ *   main fields:
+ *   - counter: A filed to make the auto increment of the ID possible
+ *   - ID: The ID of the exercise
+ *   - githubUrl: the link to the github repo
+ *   - grade: The grade of the exercise
+ *   - competitionDate: the date of competition is automatically set when the filed completed is switched to true
+ *   - completed: boolean that controls if the exercise has been completed
+ * </pre>
+ * <pre>
+ *   Example:
+ *   {@code
+ *   Project project = new Project(githubUrl, grade);
+ *   }
+ * </pre>
+ * @class
+ * @see java.lang.Class
+ * @constructor (githubUrl, grade)
+ */
 public class Project {
   private static int counter = 1;
   private final int ID;

@@ -2,6 +2,27 @@ package Classes;
 
 import java.util.ArrayList;
 
+/**
+ * <pre>
+ *   Creates a new student
+ *   main fields:
+ *   - name: Name of the students
+ *   - surname: Surname of the student
+ *   - major: What is the student majoring in
+ *   - majorID: Class ID
+ *   - exercises: The exercises that the student needs to make or has already made
+ *   - projects: The projects that the student needs to make or has already made
+ * </pre>
+ * <pre>
+ *   Example:
+ *   {@code
+ *   Student student = new Student(name, surname, major, majorID);
+ *   }
+ * </pre>
+ * @class
+ * @see java.lang.Class
+ * @constructor (name, surname, major, majorID)
+ */
 public class Student {
   private static int counter = 1;
   private final int ID;
@@ -104,6 +125,15 @@ public class Student {
 
   }
 
+  /**
+   * <pre>
+   *   used to get both the instance and the position in the array of students
+   * </pre>
+   * @method
+   * @param ID The ID of the student
+   * @param students The array of students
+   * @return an object that contains both the instance of Student and the index of the array
+   */
   public static InstanceIndex<Student> getStudentAndIndex(int ID, ArrayList<Student> students){
     int index = 0;
     for (Student student : students){
@@ -115,6 +145,11 @@ public class Student {
     return null;
   }
 
+  /**
+   * used to have auto-incremental ID
+   * @method
+   * @return the increment of counter + 1
+   */
   private static int incrementAndGet(){
     return counter++;
   }

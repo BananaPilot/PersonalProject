@@ -5,6 +5,14 @@ import ClassesInput.StudentHandler;
 import Prompts.Prompts;
 
 public class Main {
+  /**
+   * <pre>
+   * The heart of out application
+   * in the perfect word this project is completed BUT
+   * here is where we call all our different functions to prompt the user
+   * as you can see pressing 0 will make our application stop.
+   * </pre>
+   */
   public static void main(String[] args) {
     int input;
     do {
