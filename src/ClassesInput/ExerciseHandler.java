@@ -107,12 +107,24 @@ public class ExerciseHandler {
     return Exercise.getExerciseAndIndex(ID, exercises);
   }
 
+  /**
+   * <pre>
+   *   Gets and delete the specified exercise
+   * </pre>
+   * @param exercises the array that contains all the exercises
+   */
   public static void deleteExercise(ArrayList<Exercise> exercises) {
     int index = getExercise(exercises).index();
     exercises.remove(index);
     System.out.println("Exercise has been removed");
   }
 
+  /**
+   * <pre>
+   *   Gets and modify the specified exercise
+   * </pre>
+   * @param exercises the array that contains all the exercises
+   */
   public static void modifyExercise(ArrayList<Exercise> exercises){
     Exercise exercise = getExercise(exercises).element();
     int input;
@@ -151,6 +163,12 @@ public class ExerciseHandler {
     } while (input > 0);
   }
 
+  /**
+   * <pre>
+   *   Prompts the user with the difficulty selection menu and returns the difficulty
+   * </pre>
+   * @return the difficulty level that the final user selects
+   */
   public static Difficulty chooseDifficulty(){
     Prompts.difficultyLevelPrompt();
     int input = GetInput.getInput();
