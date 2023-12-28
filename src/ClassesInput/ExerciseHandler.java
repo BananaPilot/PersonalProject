@@ -7,7 +7,36 @@ import Prompts.Prompts;
 
 import java.util.ArrayList;
 
+/**
+ * <pre>
+ *   Class that is used to interact with the scanner implements the CRUD (Create, Read, Update, Delete)
+ *   is a set of 6 methods:
+ *   - exerciseCRUDInterface: This is our user interface for this project so a way that out application can "talk" to the final user
+ *   - createExercise: A method to create a new Exercise
+ *   - getExercises: A method to list all our exercises in the array
+ *   - getExercise: A method to list a specific exercise in the array
+ *   - deleteExercise: A method to delete a specific exercise in the array
+ *   - modifyExercise: A method to modify a specific exercise in the array
+ * </pre>
+ * @methodList
+ */
 public class ExerciseHandler {
+  /**
+   * <pre>
+   *   implements an easy way to "speak" to the final user my prompting the user with different choices
+   *   example of prompt:
+   *    {@code
+   *        System.out.println("1. Create a new exercise");
+   *        System.out.println("2. List all exercises");
+   *        System.out.println("3. List a specific exercise");
+   *        System.out.println("4. Delete an exercise");
+   *        System.out.println("5. Modify an exercise");
+   *        System.out.println("0. Back to main menu");
+   *        System.out.print("Input: ");
+   *    }
+   * </pre>
+   * @method
+   */
   public static void exerciseCRUDInterface(){
     ArrayList<Exercise> exercises = new ArrayList<>();
     int input;
@@ -35,6 +64,12 @@ public class ExerciseHandler {
     } while (input > 0);
   }
 
+  /**
+   * <pre>
+   *   creates a new Exercise by calling the class Exercise constructor
+   * </pre>
+   * @return new Exercise
+   */
   public static Exercise createExercise(){
     System.out.print("Name: ");
     String name = In.scanner.nextLine();
@@ -44,6 +79,12 @@ public class ExerciseHandler {
     return new Exercise(name, description, difficulty);
   }
 
+  /**
+   * <pre>
+   *   Lists all the exercises in our exercises array so our final user can easily see all the exercises
+   * </pre>
+   * @param exercises the array that contains all the exercises
+   */
   public static void getExercises(ArrayList<Exercise> exercises){
     if (exercises.isEmpty()){
       System.out.println("List is empty");
@@ -54,9 +95,16 @@ public class ExerciseHandler {
     }
   }
 
+  /**
+   * <pre>
+   *   Lists a specific exercise by asking the id and searching in the array and finding both the instance and the index in the array
+   * </pre>
+   * @param exercises the array that contains all the exercises
+   * @return both the instance of the exercise and the position in the array
+   */
   public static InstanceIndex<Exercise> getExercise(ArrayList<Exercise> exercises){
     int ID = GetInput.getID();
-    return Exercise.getStudentAndIndex(ID, exercises);
+    return Exercise.getExerciseAndIndex(ID, exercises);
   }
 
   public static void deleteExercise(ArrayList<Exercise> exercises) {
