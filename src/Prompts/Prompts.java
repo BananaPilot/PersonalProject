@@ -19,7 +19,7 @@ public class Prompts {
     System.out.println("2. Change Surname");
     System.out.println("3. Change Major");
     System.out.println("4. Change MajorID");
-    System.out.println("0. Back to main menu");
+    System.out.println("0. Back to student interface");
     System.out.print("Input: ");
   }
 
