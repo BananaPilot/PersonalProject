@@ -1,5 +1,6 @@
 package Interactions;
 
+import Classes.InstanceIndex;
 import Classes.Student;
 import Prompts.Prompts;
 
@@ -37,31 +38,19 @@ public class UserInput {
     }
   }
 
-  public static Student getStudent(ArrayList<Student> students){
+  public static InstanceIndex<Student> getStudent(ArrayList<Student> students){
     int ID = Prompts.getID();
-    for (Student student : students){
-      if (student.getID() == ID){
-        return student;
-      }
-    }
-    return null;
+    return Student.getStudentAndIndex(ID, students);
   }
 
   public static void deleteStudent(ArrayList<Student> students){
-    int ID = Prompts.getID();
-    int index = 0;
-    for (Student student : students){
-      if (student.getID() == ID){
-        students.remove(index);
-        break;
-      }
-      index++;
-    }
-    System.out.println("Student with ID " + ID + " has been deleted");
+    int index = getStudent(students).index();
+    students.remove(index);
+    System.out.println("Student has been deleted");
   }
 
   public static void modifyStudent(ArrayList<Student> students){
-    Student student = getStudent(students);
+    InstanceIndex<Student> student = getStudent(students);
     int input;
     do {
       Prompts.modifyPrompt();
@@ -71,25 +60,25 @@ public class UserInput {
           System.out.print("New name: ");
           String name = scanner.nextLine();
           assert student != null;
-          student.setName(name);
+          student.element().setName(name);
           break;
         case 2:
           System.out.print("New surname: ");
           String surname = scanner.nextLine();
           assert student != null;
-          student.setSurname(surname);
+          student.element().setSurname(surname);
           break;
         case 3:
           System.out.print("New major: ");
           String major = scanner.nextLine();
           assert student != null;
-          student.setMajor(major);
+          student.element().setMajor(major);
           break;
         case 4:
           System.out.print("New majorID: ");
           String majorID = scanner.nextLine();
           assert student != null;
-          student.setMajorID(majorID);
+          student.element().setMajorID(majorID);
           break;
       }
     } while (input > 0);

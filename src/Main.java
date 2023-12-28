@@ -3,10 +3,8 @@ import Interactions.UserInput;
 import Prompts.Prompts;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Main {
-  public static Scanner scanner = new Scanner(System.in);
   public static void main(String[] args) {
     ArrayList<Student> students = new ArrayList<>();
     int input;
